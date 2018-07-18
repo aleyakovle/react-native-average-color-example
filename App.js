@@ -25,44 +25,18 @@ class App extends Component {
     })
   }
 
-  getAverageColor (data) {
-    let blockSize = 5,
-      i = -4,
-      length,
-      rgb = {r:0,g:0,b:0},
-      count = 0;
-
-    length = data.data.length;
-
-    while ( (i += blockSize * 4) < length ) {
-      ++count;
-      rgb.r += data.data[i];
-      rgb.g += data.data[i+1];
-      rgb.b += data.data[i+2];
-    }
-
-    // ~~ used to floor values
-    rgb.r = ~~(rgb.r/count);
-    rgb.g = ~~(rgb.g/count);
-    rgb.b = ~~(rgb.b/count);
-    console.log(rgb, 'rgb');
-    return rgb;
-  }
-
   changeBg = () => {
     const canvas = this.canvas;
     canvas.width = 200;
     canvas.height = 300;
     const context = canvas.getContext('2d');
     const image = new CanvasImage(canvas);
-    getAverageColor = this.getAverageColor;
     image.addEventListener('load', () => {
       context.drawImage(
         image,
         0,
         0
       );
-      console.log('before try');
       try {
         const self = this;
         context.getImageData(0, 0, canvas.height, canvas.width)
@@ -98,7 +72,6 @@ class App extends Component {
       } catch (e) {
         console.log(e, 'e');
       }
-      console.log('after try');
     });
     image.src = this.state.currentImage;
   }
