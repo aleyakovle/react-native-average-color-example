@@ -10,3 +10,7 @@ Works through expo.
 3) ```npm i```
 
 4) ```exp start```
+
+
+P.S you need installed exp cli on your machine.
+https://github.com/expo/exp
