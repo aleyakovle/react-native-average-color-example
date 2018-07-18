@@ -1,5 +1,5 @@
 # react-native-average-color-example
-React Native average color of selected image canvas. Compatible with expo. Uses react-native-canvas.
+React Native average color of selected image. Compatible with expo. Uses react-native-canvas.
 
 Works through expo.
 
